@@ -1,7 +1,7 @@
-const { NOT_FOUND_ERROR_CODE } = require('../utils/constants');
+const { NotFoundError } = require('../errors/notFoundError'); // 404
 
-const notFound = (req, res) => {
-  res.status(NOT_FOUND_ERROR_CODE).send({ message: 'Запрашиваемая страница не существует' });
+const notFound = (req, res, next) => {
+  next(new NotFoundError('Запрашиваемая страница не существует'));
 };
 
 module.exports = { notFound };
