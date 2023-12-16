@@ -156,7 +156,6 @@ const getCurrentUser = (req, res, next) => {
         next(new NotFoundError('Пользователь не найден'));
         return;
       }
-      // Добавил действие по умолчанию: отправка данных пользователя
       res.status(200).send({ data: userData(user) });
     })
     .catch(next);
